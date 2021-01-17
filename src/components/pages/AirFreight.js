@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import '../../App.css';
 
 function AirFreight(props) {
-const {pageRowsInternAirStart,ancorMail,pageRows,pageList,pageBottom}=props;
+const {imgAirFreight,pageRowsInternAirStart,ancorMail,pageRows,pageList,pageBottom}=props;
    
 const spanRows = pageRows.map((item,i)=>
         <div key={i} className={item.cName}>

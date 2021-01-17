@@ -1,3 +1,10 @@
+export const engImgAirFreight=[
+    {   path:"",
+        cName:"",
+    }
+]
+
+
 export const engPageRowsAir=[
     {
         row:"Air transportation",

@@ -1,3 +1,9 @@
+export const imgAirFreight=[
+    {   path:"",
+        cName:"",
+    }
+]
+
 export const pageRowsAir=[
     {
         row:"Авиаперевозка грузов",

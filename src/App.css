@@ -4,6 +4,7 @@
   padding: 0;
   font-family: "Montserrat", sans-serif;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -16,34 +17,49 @@
   /*border-bottom: 3px solid rgb(35, 80, 69);*/
   color: rgb(35, 80, 69);
 }
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 70px;
+  width: 100vw;
+  background-color: rgb(35, 80, 69);
+  border-top: 4px solid coral;
+  margin-top: 50px;
+}
 .wrapper {
-  background-image: url("./images/main/airplane-montaine.jpg");
-  position: relative; /*для моб змінити*/
-  background-attachment: fixed; /*для моб змінити*/
-  background-repeat: no-repeat;
-  background-size: cover;
-  /*height: 100vh;*/
-  min-height: 100vh;
-  padding-bottom: 145px;
-  background-position: top;
-  margin: 20px 0 20px 0;
-  border-bottom: 4px solid coral;
-  border-top: 2px solid coral;
+  margin: 0 0 20px 0;
+}
+.get-rate {
+  /*text*/
+  position: absolute;
+  bottom: 525px;
+  right: 90px;
+  font-size: 1.6rem;
+  font-style: italic;
+  line-height: 30px;
+  font-weight: 700;
+  color: rgb(35, 80, 69);
+  text-decoration: none;
+}
+.get-rate:hover {
+  color: coral;
 }
 
 .page {
-  position: absolute;
-  top: 750px;
-  padding: 20px 55px 10px 55px;
+  padding: 20px 70px 10px 70px;
   font-size: 1.2rem;
   line-height: 30px;
   font-weight: 700;
   text-align: justify;
+  z-index: -1;
 }
-.page div {
-  padding-bottom: 10px;
-  padding-top: 15px;
+.rate {
+  display: flex;
+  justify-content: center;
 }
+
 .page .order {
   padding-left: 40px;
 }
@@ -55,6 +71,7 @@
   padding-bottom: 10px;
   margin-left: 50px;
 }
+
 .page .title {
   padding: 10px 0 20px 0;
   font-weight: 600;
@@ -78,12 +95,24 @@
   padding-left: 15px;
   font-weight: 600;
 }
+
 .box-start {
   display: flex;
   justify-content: start;
 }
 .stratch {
   margin-right: 5px;
+}
+.submit-btn {
+  display: block;
+  margin: 5px;
+  padding: 5px;
+}
+.error {
+  color: red;
+}
+.select {
+  width: 140px;
 }
 @media screen and (max-width: 960px) {
   .wrapper {
@@ -100,6 +129,9 @@
     font-size: 16px;
     font-weight: 500;
     text-align: justify;
+  }
+  .footer {
+    /*сделать футер*/
   }
   .page ul {
     padding-left: 20px;

@@ -7,7 +7,7 @@ import About from "../pages/About.js";
 import AirFreight from "../pages/AirFreight.js";
 
 import ConsolidatedTransportation from "../pages/ConsolidatedTransportation.js";
-import Main from "../pages/Main";
+import Home from "./Home";
 import Contacts from "../pages/Contacts.js";
 
 import CustomsClearance from "../pages/CustomsClearance";
@@ -24,15 +24,16 @@ import SeaTransportation from "../pages/SeaTransportation";
 import Services from "../pages/Services";
 import Standarts from "../pages/Standarts";
 import UsefulLinks from "../pages/UsefulLinks";
+import FormPage from "../pages/Form";
 
 import {pageRows,pageList,pageBottom} from "../info/pageAbout";
 import {pageRowsRoad,pageListRoad,pageRowsMdlRoad,pageListMdlRoad,pageBottomRoad,pageRowsInternRoadStart, ancorMailRoad} from "../info/pageRoad";
-import {pageRowsMain,pageListMain,pageBottomMain} from "../info/pageMain";
+
 import { pageListMission, pageRowsMission } from "../info/pageMission";
 import {pageRowsStandart,pageBottomStandart,ancor} from "../info/pageStandart";
 import {pageRowsIntern,pageListIntern,ancorAir,pageRowsInternAir,pageRowsInternAirStart,ancorMail,ancorSea,pageRowsInternSea,
   pageListIntSea,pageRowsFinal,pageRowsInternRoad,ancorRoad,pageRowsInternMulti,ancorMulti} from "../info/pageInternationalTr";
-import { pageRowsAir,pageListAir,pageBottomAir,ancorMailAir, pageInternAirStart } from "../info/pageAirFreight";
+import {imgAirFreight,pageRowsAir,pageListAir,pageBottomAir,ancorMailAir, pageInternAirStart } from "../info/pageAirFreight";
 import {pageRowsSea,pageListSea,pageBottomSea,pageRowsInternSeaStart,ancorMailSea} from "../info/pageSea";
 import {pageRowsMulti,pageListMulti,pageBottomMulti,ancorMailMulti,pageInternMultiStart} from "../info/pageMultimodal";
 import {pageRowsConsl,pageListConsl,pageBottomConsl,ancorMailConsl,pageInternConslStart} from "../info/pageConsolidation";
@@ -46,14 +47,14 @@ import {pageRowsAdr,pageListAdr,titleAdr,pageRowsMiddleAdr,pageBottomAdr,pageAdr
 
 
 
-import {engPageRows,engPageList,engPageBottom} from "../infoEng/pageAbout";
+import {engPageRowsAbout,engShippingList,engPageRowsMdl,engPageListAbout,engPageBottomAbout,engAncorRateAbout,engPageRowsEnd} from "../infoEng/pageAbout";
 import {engPageListMission, engPageRowsMission } from "../infoEng/pageMission";
 import {engPageRowsStandart,engPageBottomStandart,engAncor} from "../infoEng/pageStandart";
 import {engPageRowsIntern,engPageListIntern,engAncorAir,engPageRowsInternAir,engPageRowsInternAirStart,engAncorMail,engAncorSea,engPageRowsInternSea,
   engPageListIntSea,engPageRowsFinal,engPageRowsInternRoad,engAncorRoad,engPageRowsInternMulti,engAncorMulti} from "../infoEng/pageInternationalTr";
-import { engPageRowsAir,engPageListAir,engPageBottomAir,engAncorMailAir, engPageInternAirStart } from "../infoEng/pageAirFreight";
+import {engImgAirFreight,engPageRowsAir,engPageListAir,engPageBottomAir,engAncorMailAir, engPageInternAirStart } from "../infoEng/pageAirFreight";
 import {engPageRowsSea,engPageListSea,engPageBottomSea,engPageRowsInternSeaStart,engAncorMailSea} from "../infoEng/pageSea";
-import {engPageRowsMain,engPageListMain,engPageBottomMain} from "../infoEng/pageMain";
+
 import {engPageRowsMulti,engPageListMulti,engPageBottomMulti,engAncorMailMulti,engPageInternMultiStart} from "../infoEng/pageMultimodal";
 import {engPageRowsConsl,engPageListConsl,engPageBottomConsl,engAncorMailConsl,engPageInternConslStart} from "../infoEng/pageConsolidation";
 import {engPageRowsRoad,engPageListRoad,engPageRowsMdlRoad,engPageListMdlRoad,engPageBottomRoad,engPageRowsInternRoadStart, engAncorMailRoad} from "../infoEng/pageRoad";
@@ -65,20 +66,19 @@ import {engPageRowsLigist,engPageListLogist,engPageBottomLogist,engPageLogistSta
 import {engPageRowsCC,engPageListCC,engPageBottomCC,engAncorMailCC,engPageCCStart} from "../infoEng/pageCustomsClearance";
 import {engPageRowsAdr,engPageListAdr,engTitleAdr,engPageRowsMiddleAdr,engPageBottomAdr,engPageAdrStart,engAncorMailAdr} from "../infoEng/pageAdr"
 
+import {NotFound} from "./NotFound";
 export const useRoutes = (language) => {
-const russ="russ";
-const eng="eng";
-const deu="deu";
 
-language=russ;
+console.log(language);
 
-  if (language===eng) {
+console.log(language);
+  if (language==="RUS") {
     return (
         <Switch>
         <Route exact  path="/about" render={() => <About pageRows={pageRows} pageList={pageList} pageBottom={pageBottom}/>} />
-        
-        <Route exact  path="/air-freight" render={()=><AirFreight ancorMail={ancorMailAir} pageRowsInternAirStart={pageInternAirStart} pageRows={pageRowsAir} pageList={pageListAir} pageBottom={pageBottomAir} />}/>
-        <Route exact path="/" render={()=><Main pageRows={pageRowsMain} pageList={pageListMain} pageBottom={pageBottomMain}/>} />
+        <Route exact  path="/get-rate" render={() => <FormPage/>} />
+        <Route exact  path="/air-freight" render={()=><AirFreight imgAirFreight={imgAirFreight} ancorMail={ancorMailAir} pageRowsInternAirStart={pageInternAirStart} pageRows={pageRowsAir} pageList={pageListAir} pageBottom={pageBottomAir} />}/>
+        <Route exact path="/" render={()=><Home/>} />
         <Route exact  path="/consolidated-cargo-transportation" render={()=><ConsolidatedTransportation pageRows={pageRowsConsl} pageList={pageListConsl} pageBottom={pageBottomConsl} pageInternConslStart={pageInternConslStart} ancorMail={ancorMailConsl}/>}/>
         <Route exact  path="/contacts" component={Contacts} />
         <Route exact  path="/customs-clearance" render={()=><CustomsClearance pageRows={pageRowsCC} pageList={pageListCC} pageBottom={pageBottomCC} pageInternConslStart={pageCCStart} ancorMail={ancorMailCC}/>}/>
@@ -103,12 +103,13 @@ language=russ;
         <Route exact  path="/services" render={()=><Services pageRows={pageRowsServices} pageBottom={pageBottomServices} ancorMail={ancorMailServices} pageServicesStart={pageServicesStart} />}/>
       </Switch>
     );
-  }
+  }if (language==="ENG"){
   return (
     <Switch>
-    <Route exact  path="/about" render={() => <About pageRows={engPageRows} pageList={engPageList} pageBottom={engPageBottom}/>} />
-    <Route exact  path="/air-freight" render={()=><AirFreight ancorMail={engAncorMailAir} pageRowsInternAirStart={engPageInternAirStart} pageRows={engPageRowsAir} pageList={engPageListAir} pageBottom={engPageBottomAir} />}/>
-    <Route exact path="/" render={()=><Main pageRows={engPageRowsMain} pageList={engPageListMain} pageBottom={engPageBottomMain}/>} />
+    <Route exact  path="/about" render={() => <About pageRows={engPageRowsAbout} shippingList={engShippingList} pageRowsMdl={engPageRowsMdl}  pageList={engPageListAbout} pageBottom={engPageBottomAbout} ancorRate={engAncorRateAbout} pageRowsEnd={engPageRowsEnd}/>} />
+    <Route exact  path="/get-rate" render={() => <FormPage/>} />
+    <Route exact  path="/air-freight" render={()=><AirFreight imgAirFreight={engImgAirFreight} ancorMail={engAncorMailAir} pageRowsInternAirStart={engPageInternAirStart} pageRows={engPageRowsAir} pageList={engPageListAir} pageBottom={engPageBottomAir} />}/>
+    <Route exact path="/" render={()=><Home/>} />
     <Route exact  path="/consolidated-cargo-transportation" render={()=><ConsolidatedTransportation pageRows={engPageRowsConsl} pageList={engPageListConsl} pageBottom={engPageBottomConsl} pageInternConslStart={engPageInternConslStart} ancorMail={engAncorMailConsl}/>}/>
     <Route exact  path="/contacts" component={Contacts} />
     <Route exact  path="/customs-clearance" render={()=><CustomsClearance pageRows={engPageRowsCC} pageList={engPageListCC} pageBottom={engPageBottomCC} pageCCStart={engPageCCStart} ancorMail={engAncorMailCC}/>}/>
@@ -132,5 +133,9 @@ language=russ;
         <Route exact  path="/useful-links" component={UsefulLinks} />
         <Route exact  path="/services" render={()=><Services pageRows={engPageRowsServices} pageBottom={engPageBottomServices} ancorMail={engAncorMailServices} pageServicesStart={engPageServicesStart} />}/>
   </Switch>
-  );
+  )}if(language==="DEU"){
+    <Switch>
+      <Redirect to="/not_found" component={NotFound}/>
+    </Switch>
+  }
 };

@@ -1,8 +1,8 @@
 .navbar {
-  height: 250px;
-  padding: 20px 40px 20px 20px;
+  height: 180px;
+  padding: 10px 40px 0 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: flex-start;
   font-size: 1.2rem;
 }
@@ -19,7 +19,13 @@
   display: flex;
   flex-wrap: wrap;
 }
+
 .nav-menu {
+  -webkit-transform: translateY(28px);
+  -moz-transform: translateY(28px);
+  -o-transform: translateY(28px);
+  transform: translateY(28px);
+
   height: 80px;
   background: linear-gradient(
     90deg,
@@ -34,7 +40,7 @@
   width: fit-content;
   justify-content: end;
   /*margin-right: 2rem;*/
-  border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 30px;
   border-top-left-radius: 20px;
   border: 0.5px solid coral;
 }
@@ -44,8 +50,10 @@
   height: 80px;
 
   -webkit-transform: skew(-10deg) translateX(-20px) translateY(-1px);
-  -moz-transform: skew(-20deg) translateX(-20px) translateY(-1px);
-  -o-transform: skew(-20deg) translateX(-20px) translateY(-1px);
+  -moz-transform: skew(-10deg) translateX(-20px) translateY(-1px);
+  -o-transform: skew(-10deg) translateX(-20px) translateY(-1px);
+  transform: skew(-10deg) translateX(-20px) translateY(-1px);
+
   border-top-left-radius: 20px;
   background: coral;
 }
@@ -55,11 +63,14 @@
   width: 40px;
   height: 78px;
 
-  -webkit-transform: skew(-10deg) translateX(7px) translateY(-1px);
-  -moz-transform: skew(-20deg) translateX(7px) translateY(-1px);
-  -o-transform: skew(-20deg) translateX(7px) translateY(-1px);
+  -webkit-transform: skew(-10deg) translateX(7px) translateY(-1.2px);
+  -moz-transform: skew(-10deg) translateX(7px) translateY(-1.2px);
+  -o-transform: skew(-10deg) translateX(7px) translateY(-1.2px);
+  transform: skew(-10deg) translateX(7px) translateY(-1.2px);
+
   border-bottom-right-radius: 20px;
   background: rgb(35, 80, 69);
+
   border-left: transparent;
   border-right: 0.5px solid coral;
   border-top: 0.5px solid coral;
@@ -71,6 +82,7 @@
   width: max-content;
   align-items: center;
   height: 80px;
+  padding: 5px;
 }
 /*.nav-item li:hover {
   border-color: steelblue;
@@ -143,7 +155,7 @@
     width: 100%;
     height: 100vh;
     position: absolute;
-    top: 65px;
+    top: 32px;
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;

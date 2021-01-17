@@ -32,7 +32,7 @@ function Services(props) {
     
         return(
             <div className="page">
-             {spanRows}
+            {spanRows}
             {spanBottom}
             <div className="box-start">{spanServicesStart}{spanAncorMail}</div>
            </div>

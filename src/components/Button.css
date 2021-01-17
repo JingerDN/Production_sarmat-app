@@ -1,24 +1,21 @@
-:root {
-  --primary: #1888ff;
-}
+.lang {
+  position: absolute;
 
-.btn {
-  padding: 8px 20px;
-  border-radius: 4px;
-  outline: none;
+  top: 7px;
+  left: 85vw;
+  z-index: 1;
+}
+.lang-active {
+  background: rgb(35, 80, 69);
+  color: white;
+}
+.lang-off {
+  background: silver;
+}
+.lang button {
   border: none;
-  font-size: 18px;
-  color: #fff;
-  cursor: pointer;
-  background-color: var(--primary);
-}
-
-.btn:hover {
-  padding: 6px 18px;
-  transition: all 0.3s ease-out;
-  background-color: transparent;
-  color: #fff;
-  border-radius: 4px;
-  border: 2px solid var(--primary);
-  transition: all 0.3s ease-out;
+  outline: none;
+  width: 50px;
+  height: 25px;
+  margin: 1px;
 }

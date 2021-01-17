@@ -1,26 +1,24 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
+import {useContext} from "react";
+import { LanguageContext } from "../components/pages/LanguageContext";
 
-import {Button} from "./Button";
 import {MenuItemsAbout,engMenuItemsAbout} from "./MenuItemsAbout";
 import {MenuItemsInternational,engMenuItemsInternational} from "./MenuItemsInternational";
 import {MenuItemsServices,engMenuItemsServices} from "./MenuItemsServices";
-import "./Navbar.css";
 import Dropdown from "./Dropdown";
 import logo from "../images/logo/logo.png";
-import "../images/logo/logo.css"
+import "../images/logo/logo.css";
+import "./Navbar.css";
 
-function Navbar(props){
-    const {language}=props;
+
+function Navbar(){
+    const valueLanguage = useContext(LanguageContext);
 
     const [click,setClick]=useState(false);
     const [dropdown, setDropdown]=useState(false);
-    const [lang,setLanguage]=useState(language);
-
-
-    
+   
     const handleClick=()=>setClick(!click);
-
     const closeMobileMenu=()=>setClick(false)
 
     const onMouseEnter=()=>{
@@ -50,31 +48,32 @@ function Navbar(props){
             <div className="menu-icon" onClick={handleClick}>
                 <i className={click ? "fas fa-times": "fas fa-bars"}/>
             </div>
+        
             <ul className={click ? "nav-menu active": "nav-menu"}>
                 <div className="edit">
                <div> <li className="nav-item">
-                     <Link to="/" className="nav-links" onClick={closeMobileMenu} > {lang==="eng"?"Main ": "Главная"}</Link>
+                     <Link to="/" className="nav-links" onClick={closeMobileMenu} > {valueLanguage==="ENG"?"Home ": "Главная"}</Link>
                 </li></div>
                 <div><li className="nav-item" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >
-                <Link to="/about" className="nav-links" onClick={closeMobileMenu} >{lang==="eng"?"About ": "О компании"}<i className="fas fa-caret-down"/>
-                    {dropdown && lang==="eng"?<Dropdown menuItems={engMenuItemsAbout}/>:dropdown && <Dropdown menuItems={MenuItemsAbout}/>}
+                <Link to="/about" className="nav-links" onClick={closeMobileMenu} >{valueLanguage==="ENG"?"About ": "О компании"}<i className="fas fa-caret-down"/>
+                    {dropdown && valueLanguage==="ENG"?<Dropdown menuItems={engMenuItemsAbout}/>:dropdown && <Dropdown menuItems={MenuItemsAbout}/>}
                     </Link>
                 </li></div>
                 <div><li className="nav-item" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} >
-                    <Link to="/international-transportation" className="nav-links" onClick={closeMobileMenu} >{lang==="eng"?"International transportation ": "Международные перевозки"}<i className="fas fa-caret-down"/>
-                    {dropdown && lang==="eng"?<Dropdown menuItems={engMenuItemsInternational}/>:dropdown && <Dropdown menuItems={MenuItemsInternational}/> }
+                    <Link to="/international-transportation" className="nav-links" onClick={closeMobileMenu} >{valueLanguage==="ENG"?"International transportation ": "Международные перевозки"}<i className="fas fa-caret-down"/>
+                    {dropdown && valueLanguage==="ENG"?<Dropdown menuItems={engMenuItemsInternational}/>:dropdown && <Dropdown menuItems={MenuItemsInternational}/> }
                     </Link>
                 </li></div>
                <div> <li className="nav-item" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-                    <Link to="/services" className="nav-links" onClick={closeMobileMenu} >{lang==="eng"?"Services ": "Услуги"}<i className="fas fa-caret-down"/>
-                    {dropdown && lang==="eng"?<Dropdown menuItems={engMenuItemsServices}/>:dropdown && <Dropdown menuItems={MenuItemsServices}/>}
+                    <Link to="/services" className="nav-links" onClick={closeMobileMenu} >{valueLanguage==="ENG"?"Services ": "Услуги"}<i className="fas fa-caret-down"/>
+                    {dropdown && valueLanguage==="ENG"?<Dropdown menuItems={engMenuItemsServices}/>:dropdown && <Dropdown menuItems={MenuItemsServices}/>}
                     </Link>
                 </li></div>
                <div> <li className="nav-item">
-                    <Link to="/contacts" className="nav-links" onClick={closeMobileMenu} >{lang==="eng"?"Contacts ": "Контакты"}</Link>
+                    <Link to="/contacts" className="nav-links" onClick={closeMobileMenu} >{valueLanguage==="ENG"?"Contacts ": "Контакты"}</Link>
                 </li></div>
               <div>  <li className="nav-item">
-                    <Link to="/useful-links" className="nav-links" onClick={closeMobileMenu} >{lang==="eng"?"Useful links ": "Полезные ссылки"}</Link>
+                    <Link to="/useful-links" className="nav-links" onClick={closeMobileMenu} >{valueLanguage==="ENG"?"Useful links ": "Полезные ссылки"}</Link>
                 </li></div>
                 </div>
             </ul>
